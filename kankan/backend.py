@@ -1,6 +1,7 @@
 import sys
 sys.path.append('.')
 
+import os
 import openai
 from openai.embeddings_utils import get_embedding, cosine_similarity
 
@@ -15,7 +16,7 @@ n_best = 10
 thr=0.50
 model_name = 'ada' 
 todofuken_name = 'nagano'
-openai.api_key="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"
+openai.api_key=os.environ["OPENAI_API_KEY"]
 vec_file_path = f'./dataset/sentvecs.{model_name}.kuchikomi_report.vec.{todofuken_name}'
 raw_data_path = f'./dataset/jalan_kanko.csv.{todofuken_name}.csv'
 query_file_path = './dataset/query_debug.txt'
